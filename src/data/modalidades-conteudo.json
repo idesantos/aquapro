@@ -1,0 +1,69 @@
+{
+  "natacao-baby": {
+    "titulo": "Natação Baby",
+    "descricao": "Recomendada para bebês a partir dos 6 meses de idade. As aulas acontecem com a presença de um acompanhante na água e trabalham a ambientação e a adaptação ao meio líquido, a sociabilização, o equilíbrio, os mergulhos e a sobrevivência. A natação auxilia na coordenação motora, que é muito importante para que o bebê atinja marcos de desenvolvimento como sentar, engatinhar e andar, e ajuda a estreitar a relação afetiva entre pai, mãe e bebê.",
+    "beneficios": {
+      "lista": [
+        "Auxilia na coordenação motora",
+        "Ajuda o bebê a atingir marcos como sentar, engatinhar e andar",
+        "Estreita a relação afetiva entre pai, mãe e bebê",
+        "Adaptação ao meio líquido e primeiros mergulhos",
+        "Sociabilização desde cedo"
+      ]
+    }
+  },
+  "natacao-infantil": {
+    "titulo": "Natação Infantil",
+    "descricao": "Recomendada para crianças que desejam aprender a nadar ou melhorar suas habilidades motoras, mesmo que ainda não saibam nadar. Com a Metodologia Aquativa, a criança evolui por níveis, cada um com o seu mascote: da adaptação ao meio líquido até os quatro estilos (crawl, costas, peito e borboleta). As aulas acontecem num clima de muita motivação, com atividades lúdicas e recreativas.",
+    "beneficios": {
+      "lista": [
+        "Ajuda na autoestima",
+        "Faz bem à saúde",
+        "Pratica a socialização",
+        "Desenvolve as habilidades motoras",
+        "Ensina a nadar com segurança"
+      ]
+    }
+  },
+  "natacao-adulto": {
+    "titulo": "Natação Adulto",
+    "descricao": "Recomendada para adultos de qualquer idade que desejam aprender a nadar ou melhorar suas habilidades, mesmo que não saibam nadar ou tenham algum trauma relacionado à água. Melhore sua qualidade de vida com esse esporte completo: a natação trabalha a parte aeróbica, fortalece o sistema cardiorrespiratório, melhora o condicionamento físico e ajuda a relaxar e a distrair a mente da rotina.",
+    "beneficios": {
+      "lista": [
+        "Desenvolve a musculatura",
+        "Ajuda a emagrecer",
+        "Desenvolve a capacidade cardiorrespiratória",
+        "Favorece a memória e a concentração",
+        "Reduz o estresse e a ansiedade"
+      ]
+    }
+  },
+  "hidroginastica": {
+    "titulo": "Hidroginástica",
+    "descricao": "Recomendada para pessoas de todas as idades, sendo ótima para aquelas com problemas na coluna ou no coração. Os exercícios aeróbicos sem impacto tornam a hidroginástica ideal para pessoas com problemas nas articulações ou osteoporose.",
+    "beneficios": {
+      "texto": "A prática fortalece os ossos e ajuda a prevenir doenças cardiovasculares. Preserva as articulações, aumenta a coordenação motora, melhora a flexibilidade e promove o bem-estar, dando aos seus praticantes mais qualidade de vida."
+    }
+  },
+  "musculacao": {
+    "titulo": "Musculação",
+    "descricao": "Além das modalidades aquáticas, a Aquapro tem musculação. É uma das atividades mais completas para incluir na rotina: trabalha todos os grupos musculares, ajuda a ganhar massa magra, acelera o metabolismo e contribui para a perda de peso, além de melhorar a postura e aumentar a densidade óssea. Serve tanto para quem está começando e quer tonificar o corpo quanto para quem busca mais força e desempenho.",
+    "beneficios": {
+      "lista": [
+        "Aumento da massa muscular",
+        "Aumento da força e da resistência",
+        "Melhora na postura",
+        "Aumento da densidade óssea",
+        "Melhora no metabolismo e na queima de calorias",
+        "Melhora na saúde mental e redução do estresse"
+      ]
+    }
+  },
+  "pilates-studio": {
+    "titulo": "Pilates Studio",
+    "descricao": "Além das modalidades aquáticas, a Aquapro tem Pilates Studio. O Pilates é um dos melhores exercícios para quem deseja aperfeiçoar a musculatura, corrigir a postura, aumentar a flexibilidade, estimular a coordenação motora, melhorar a concentração e amenizar dores. Também ajuda a eliminar o estresse da correria do dia a dia.",
+    "beneficios": {
+      "texto": "O Pilates facilita a prevenção de doenças e a reabilitação física, e auxilia no desenvolvimento do equilíbrio e da coordenação, especialmente para os idosos. É uma forma de exercício segura, que trabalha o corpo e a mente."
+    }
+  }
+}
