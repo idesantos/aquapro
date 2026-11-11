@@ -123,11 +123,12 @@ vec3 poolFloor(vec2 w) {
   float g = 0.07;
   float grout = smoothstep(0.0, g, f.x) * smoothstep(1.0, 1.0 - g, f.x) * smoothstep(0.0, g, f.y) * smoothstep(1.0, 1.0 - g, f.y);
   float tv = hash(id);
-  vec3 tile = mix(vec3(0.16, 0.66, 0.80), vec3(0.22, 0.74, 0.86), tv);
-  // Raias: faixas de duas fileiras de pastilhas escuras.
+  // Pastilhas amarelas, no tom da logo da Aquapro.
+  vec3 tile = mix(vec3(0.99, 0.80, 0.25), vec3(1.0, 0.86, 0.40), tv);
+  // Raias: faixas de duas fileiras de pastilhas no azul da logo.
   float lanes = step(abs(mod(id.y, 11.0) - 3.5), 0.6);
-  tile = mix(tile, mix(vec3(0.03, 0.22, 0.42), vec3(0.05, 0.27, 0.48), tv), lanes);
-  return mix(vec3(0.66, 0.92, 0.96), tile, grout);
+  tile = mix(tile, mix(vec3(0.08, 0.36, 0.64), vec3(0.11, 0.40, 0.68), tv), lanes);
+  return mix(vec3(0.99, 0.96, 0.86), tile, grout);
 }
 
 vec3 underwater(vec2 uv, float aspect, float t) {
@@ -189,8 +190,9 @@ void main() {
     vec2 w = (uv + refr * 0.11) * vec2(aspect, 1.0);
     col = poolFloor(w);
     float cs = caustic(w * 0.55 + refr * 0.6, uTime * 0.45);
-    col += vec3(0.75, 1.0, 1.0) * cs * 0.42;
-    col = mix(col, vec3(0.0, 0.42, 0.62), 0.18);
+    col += vec3(1.0, 1.0, 0.92) * cs * 0.42;
+    // Tom da água por cima das pastilhas: leve, para o amarelo não puxar para o verde.
+    col = mix(col, vec3(0.0, 0.42, 0.62), 0.07);
     col *= 1.0 + info.r * 3.0;
   } else {
     vec2 iuv = (uv + refr * 0.05) * uImgFit.xy + uImgFit.zw;

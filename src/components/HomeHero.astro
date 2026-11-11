@@ -70,8 +70,8 @@ import { site, whatsappLink } from '../data/site';
       radial-gradient(60% 50% at 70% 45%, rgb(255 255 255 / 22%), transparent 70%),
       linear-gradient(rgb(255 255 255 / 45%) 2px, transparent 2px) 0 0 / 4.4vh 4.4vh,
       linear-gradient(90deg, rgb(255 255 255 / 45%) 2px, transparent 2px) 0 0 / 4.4vh 4.4vh,
-      linear-gradient(transparent 22%, #0a4a7d 22% 30%, transparent 30% 72%, #0a4a7d 72% 80%, transparent 80%),
-      #28a9cb;
+      linear-gradient(transparent 22%, #1b65ae 22% 30%, transparent 30% 72%, #1b65ae 72% 80%, transparent 80%),
+      #f3c63e;
   }
   .hero__canvas {
     opacity: 0;
@@ -101,6 +101,11 @@ import { site, whatsappLink } from '../data/site';
   .hero__content > * {
     pointer-events: auto;
     max-width: 760px;
+  }
+  /* Sobre as pastilhas amarelas o azul-claro some; aqui o eyebrow fica branco. */
+  .hero__content .eyebrow {
+    color: #fff;
+    text-shadow: 0 1px 12px rgb(7 28 56 / 55%);
   }
   .hero__title {
     margin-top: 18px;
