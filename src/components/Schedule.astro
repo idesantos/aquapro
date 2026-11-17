@@ -86,7 +86,7 @@ const turnos = ['Manhã', 'Tarde', 'Noite'] as const;
         </ul>
       )}
       <p class="sch__muted">Os horários das turmas de cada modalidade são passados pelo WhatsApp.</p>
-      <a class="btn btn--accent" href={whatsappLink('Olá! Gostaria de saber os horários das turmas.')} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Consultar horários</a>
+      <a class="btn btn--accent" href={whatsappLink()} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Consultar horários</a>
     </div>
   )}
 
@@ -98,7 +98,7 @@ const turnos = ['Manhã', 'Tarde', 'Noite'] as const;
         {modalidades.map((m) => (
           <li>
             <span>{m.nome}</span>
-            <a href={whatsappLink(`Olá! Quais são os horários de ${m.nome}?`)} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Consultar</a>
+            <a href={whatsappLink()} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Consultar</a>
           </li>
         ))}
       </ul>

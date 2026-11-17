@@ -6,7 +6,7 @@ import Schedule from '../components/Schedule.astro';
 import ModalidadesRail from '../components/ModalidadesRail.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
-import { modalidades, categoriaNome, mensagemModalidade, type Modalidade } from '../data/modalidades';
+import { modalidades, categoriaNome, type Modalidade } from '../data/modalidades';
 import { grades } from '../data/horarios';
 import { metodo, niveis } from '../data/metodo';
 import { whatsappLink } from '../data/site';
@@ -18,7 +18,6 @@ export function getStaticPaths() {
 
 const { m } = Astro.props as { m: Modalidade };
 const gradesDaModalidade = grades.filter((g) => g.modalidades.includes(m.slug)).map((g) => g.id);
-const msg = mensagemModalidade(m.nome);
 const primeiraFrase = m.descricao.split(/(?<=\.)\s/)[0];
 ---
 <Base title={m.nome} description={`${m.resumo} ${primeiraFrase}`.slice(0, 158)} image={m.imagem}>
@@ -30,7 +29,7 @@ const primeiraFrase = m.descricao.split(/(?<=\.)\s/)[0];
     migalhas={[{ label: 'Modalidades', href: '/#modalidades' }, { label: m.nome }]}
   >
     <div class="mhero__ctas" data-reveal>
-      <a class="btn btn--accent" href={whatsappLink(msg)} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Agendar aula experimental</a>
+      <a class="btn btn--accent" href={whatsappLink()} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Agendar aula experimental</a>
       {gradesDaModalidade.length > 0 && <a class="btn btn--ghost" href="#horarios">Ver horários</a>}
     </div>
   </PageHero>
@@ -56,7 +55,7 @@ const primeiraFrase = m.descricao.split(/(?<=\.)\s/)[0];
               <div class="aula__body">
                 <h3 class="aula__t">{a.nome}</h3>
                 <p>{a.texto}</p>
-                <a class="link-arrow" href={whatsappLink(mensagemModalidade(a.nome))} target="_blank" rel="noopener" data-track="whatsapp">Agendar aula experimental <Icon name="arrow" /></a>
+                <a class="link-arrow" href={whatsappLink()} target="_blank" rel="noopener" data-track="whatsapp">Agendar aula experimental <Icon name="arrow" /></a>
               </div>
             </article>
           ))}
@@ -99,7 +98,7 @@ const primeiraFrase = m.descricao.split(/(?<=\.)\s/)[0];
           <a class="link-arrow" href={url('/metodo/')}>Conheça a jornada do nadador <Icon name="arrow" /></a>
         </div>
         <ul class="metodo-teaser__list">
-          {niveis.map((n) => <li><a href={url(`/metodo/#${n.id}`)}><strong>{n.mascote}</strong><span>{n.nivel} · {n.faixa}</span></a></li>)}
+          {niveis.map((n) => <li><a href={url(`/metodo/#${n.id}`)}><strong>{n.mascote}</strong><span>{n.faixa ? `${n.nivel} · ${n.faixa}` : n.nivel}</span></a></li>)}
         </ul>
       </div>
     </section>
@@ -131,7 +130,7 @@ const primeiraFrase = m.descricao.split(/(?<=\.)\s/)[0];
         <div class="consulta" data-reveal>
           <p class="sch-title">Consulte os horários de {m.nome}</p>
           <p>Chame no WhatsApp e a gente indica o melhor horário para você.</p>
-          <a class="btn btn--accent" href={whatsappLink(`Olá! Quais são os horários de ${m.nome}?`)} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Ver horários no WhatsApp</a>
+          <a class="btn btn--accent" href={whatsappLink()} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Ver horários no WhatsApp</a>
         </div>
       )}
     </div>
@@ -146,7 +145,7 @@ const primeiraFrase = m.descricao.split(/(?<=\.)\s/)[0];
     </div>
   </section>
 
-  <CtaBand titulo={`Agende sua aula experimental de ${m.nome}`} mensagem={msg} />
+  <CtaBand titulo={`Agende sua aula experimental de ${m.nome}`} />
 
   <section class="section outras" data-depth-label="Outras modalidades">
     <div class="container">

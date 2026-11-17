@@ -169,7 +169,7 @@ import { modalidades } from '../data/modalidades';
     e.preventDefault();
     const d = new FormData(form);
     const linhas = [
-      `Olá! Meu nome é ${d.get('nome')}.`,
+      `Meu nome é ${d.get('nome')}.`,
       d.get('interesse') ? `Tenho interesse em: ${d.get('interesse')}.` : '',
       d.get('mensagem') ? String(d.get('mensagem')) : '',
       d.get('telefone') ? `Meu telefone: ${d.get('telefone')}` : '',

@@ -4,10 +4,9 @@
 export const site = {
   nome: 'Aquapro Natação',
   nomeCurto: 'Aquapro',
-  experiencia: 'Há mais de 30 anos',
   slogan: 'Sua academia de natação para a família toda',
   descricao:
-    'Estamos há mais de 30 anos proporcionando saúde e bem-estar através da atividade física. Uma academia de natação para a família toda na Freguesia do Ó, com natação para bebês, crianças e adultos, hidroginástica, musculação e Pilates Studio.',
+    'No coração da Freguesia do Ó, a Aquapro proporciona saúde e bem-estar através da atividade física. Uma academia de natação para a família toda, com natação para bebês, crianças e adultos, hidroginástica, musculação e Pilates Studio.',
   razaoSocial: 'Freguesia Natação Ltda',
   cnpj: '48.257.680/0001-50',
   endereco: {
@@ -42,17 +41,18 @@ export const funcionamento: {
   porDia: null,
 };
 
-export const MSG_AULA_GRATIS = 'Olá! Gostaria de agendar uma aula experimental.';
+// Todos os botões de WhatsApp abrem com a mesma frase (pedido do Ide em 17/11/2026).
+// Só o formulário do contato acrescenta o que a pessoa preencheu, depois da frase.
+export const MSG_WHATSAPP = 'Vim do site e gostaria de saber mais';
 
-export const MSG_INFO_ACADEMIA = 'Olá! Gostaria de saber mais sobre a Aquapro.';
-
-export function whatsappLink(mensagem: string = MSG_AULA_GRATIS) {
-  return `https://api.whatsapp.com/send?phone=${site.whatsapp.numero}&text=${encodeURIComponent(mensagem)}`;
+export function whatsappLink(detalhes?: string) {
+  const texto = detalhes ? `${MSG_WHATSAPP}\n\n${detalhes}` : MSG_WHATSAPP;
+  return `https://api.whatsapp.com/send?phone=${site.whatsapp.numero}&text=${encodeURIComponent(texto)}`;
 }
 
-// Os cinco destaques do site antigo, mais a metodologia (a mesma das academias Aquacenter, a pedido do Ide).
+// Os destaques do site antigo, mais a metodologia (a mesma das academias Aquacenter, a pedido do Ide).
 export const diferenciaisAcademia = [
-  'Mais de 30 anos proporcionando saúde e bem-estar',
+  'A academia que nasceu com o bairro',
   'Metodologia Aquativa na natação infantil',
   'Aulas de acordo com o seu nível',
   'Acesso a todas as atividades',
@@ -64,7 +64,7 @@ export const diferenciaisAcademia = [
 export const sobre = {
   titulo: 'Sua academia de natação para a família toda.',
   paragrafos: [
-    'Estamos há mais de 30 anos proporcionando saúde e bem-estar através da atividade física. A Aquapro fica na Freguesia do Ó e reúne, num só lugar, natação para bebês, crianças e adultos, hidroginástica, musculação e Pilates Studio.',
+    'A Aquapro nasceu com a Freguesia do Ó e, no coração do bairro, proporciona saúde e bem-estar através da atividade física. Reúne, num só lugar, natação para bebês, crianças e adultos, hidroginástica, musculação e Pilates Studio.',
     'As aulas acontecem de acordo com o nível de cada aluno, e o plano dá acesso a todas as atividades, com preço mensal acessível. Venha nos conhecer com uma aula experimental da modalidade da sua escolha.',
   ],
 };

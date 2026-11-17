@@ -7,16 +7,18 @@ import Schedule from '../components/Schedule.astro';
 import VisitBlock from '../components/VisitBlock.astro';
 import CtaBand from '../components/CtaBand.astro';
 import Icon from '../components/Icon.astro';
-import { site, whatsappLink, MSG_INFO_ACADEMIA } from '../data/site';
+import { site, whatsappLink } from '../data/site';
 import { modalidades } from '../data/modalidades';
 import { niveis } from '../data/metodo';
 import { url } from '../lib/url';
 
-const numeros = [
-  { valor: 30, sufixo: '+', rotulo: 'anos proporcionando saúde e bem-estar' },
+// Card com `texto` mostra uma palavra no lugar do número (pedido do Ide em 17/11/2026).
+type Numero = { rotulo: string; valor?: number; de?: number; sufixo?: string; texto?: string };
+const numeros: Numero[] = [
+  { texto: 'Referência', rotulo: 'metodologia de ensino validada e comprovada' },
   { valor: modalidades.length, rotulo: 'modalidades, na água e fora dela' },
   { valor: niveis.length, rotulo: 'níveis na natação infantil, cada um com seu mascote' },
-  { valor: 6, rotulo: 'meses: idade mínima para a Natação Baby' },
+  { texto: 'Pilates', rotulo: 'o melhor estúdio de Pilates da Freguesia do Ó' },
 ];
 const extras = [
   { icone: 'medal', texto: 'Metodologia Aquativa' },
@@ -25,7 +27,7 @@ const extras = [
   { icone: 'check', texto: 'Preço mensal acessível' },
 ] as const;
 ---
-<Base description="Academia de natação para a família toda na Freguesia do Ó: natação baby, infantil e adulto, hidroginástica, musculação e Pilates Studio. Há mais de 30 anos. Agende uma aula experimental.">
+<Base description="Academia de natação para a família toda na Freguesia do Ó: natação baby, infantil e adulto, hidroginástica, musculação e Pilates Studio. A academia que nasceu com o bairro. Agende uma aula experimental.">
   <HomeHero />
 
   <!-- A academia em números (continua o mergulho do hero) -->
@@ -33,17 +35,21 @@ const extras = [
     <div class="deep__bubbles" aria-hidden="true">{Array.from({ length: 18 }, (_, i) => <span style={`--x:${(i * 53) % 100}%;--s:${6 + ((i * 11) % 18)}px;--d:${(i * 1.3) % 9}s;--t:${8 + ((i * 5) % 7)}s`} />)}</div>
     <div class="container">
       <div class="deep__intro">
-        <p class="eyebrow light" data-reveal>{site.experiencia}</p>
-        <h2 class="h-lg" data-split>Ambientes que inspiram felicidade. Para você viver melhor.</h2>
+        <p class="eyebrow light" data-reveal>Freguesia do Ó</p>
+        <h2 class="h-lg" data-split>A academia que nasceu com o bairro.</h2>
         <p class="lead" data-reveal>{site.descricao}</p>
         <a class="link-arrow" href={url('/sobre/')} data-reveal>Conheça a Aquapro <Icon name="arrow" /></a>
       </div>
       <dl class="stats">
         {numeros.map((n) => (
           <div class="stat" data-reveal>
-            <dt class="sr-only">{n.rotulo}</dt>
-            <dd class="stat__val"><span data-count={n.valor} data-count-from={n.de ?? 0}>{n.valor}</span>{n.sufixo}</dd>
-            <dd class="stat__label">{n.rotulo}</dd>
+            <dt class="sr-only">{n.texto ?? (n.valor !== undefined ? `${n.valor}${n.sufixo ?? ''}` : '')} {n.rotulo}</dt>
+            {n.texto ? (
+              <dd class="stat__val stat__val--txt" aria-hidden="true">{n.texto}</dd>
+            ) : (
+              <dd class="stat__val" aria-hidden="true"><span data-count={n.valor} data-count-from={n.de ?? 0}>{n.valor}</span>{n.sufixo}</dd>
+            )}
+            <dd class="stat__label" aria-hidden="true">{n.rotulo}</dd>
           </div>
         ))}
       </dl>
@@ -106,7 +112,7 @@ const extras = [
         <p class="eyebrow" data-reveal>Matrícula</p>
         <h2 class="h-lg" data-split>Acesso a todas as atividades, com preço mensal acessível.</h2>
         <p class="lead" data-reveal>Venha nos conhecer com uma aula experimental da modalidade da sua escolha. Os valores e as condições a gente passa pelo WhatsApp.</p>
-        <a class="btn btn--accent" href={whatsappLink('Olá! Gostaria de saber os valores e as condições para fazer a matrícula.')} target="_blank" rel="noopener" data-track="whatsapp" data-reveal><Icon name="whatsapp" /> Consultar valores</a>
+        <a class="btn btn--accent" href={whatsappLink()} target="_blank" rel="noopener" data-track="whatsapp" data-reveal><Icon name="whatsapp" /> Consultar valores</a>
       </div>
     </div>
   </section>
@@ -120,7 +126,7 @@ const extras = [
         <p>Chame no WhatsApp. A nossa equipe tira suas dúvidas sobre modalidades, horários e valores.</p>
       </div>
       <div class="conv__actions">
-        <a class="btn btn--accent" href={whatsappLink(MSG_INFO_ACADEMIA)} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Falar no WhatsApp</a>
+        <a class="btn btn--accent" href={whatsappLink()} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Falar no WhatsApp</a>
         {site.email && <a class="btn btn--ghost" href={`mailto:${site.email}`}><Icon name="mail" /> Enviar e-mail</a>}
       </div>
     </div>
@@ -194,6 +200,11 @@ const extras = [
     letter-spacing: -0.04em;
     color: var(--c-sky);
     font-variant-numeric: tabular-nums;
+  }
+  .stat__val--txt {
+    font-size: clamp(26px, 3.2vw, 46px);
+    letter-spacing: -0.03em;
+    padding-top: 0.25em;
   }
   .stat__label {
     margin-top: 10px;

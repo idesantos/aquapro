@@ -129,5 +129,3 @@ export const categoriaNome: Record<Categoria, string> = {
   academia: 'Academia',
 };
 
-export const mensagemModalidade = (nome: string) =>
-  `Olá! Gostaria de agendar uma aula experimental de ${nome}.`;

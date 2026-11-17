@@ -1,11 +1,10 @@
 ---
 import Icon from './Icon.astro';
 import { whatsappLink, site } from '../data/site';
-type Props = { titulo?: string; texto?: string; mensagem?: string };
+type Props = { titulo?: string; texto?: string };
 const {
   titulo = 'Agende sua aula experimental',
   texto = 'Fale com a gente pelo WhatsApp e escolha o melhor dia e horário.',
-  mensagem,
 } = Astro.props;
 ---
 <section class="cta on-dark" data-depth-label="Aula experimental">
@@ -14,7 +13,7 @@ const {
     <h2 class="h-lg" data-split>{titulo}</h2>
     <p class="lead" data-reveal>{texto}</p>
     <div class="cta__actions" data-reveal>
-      <a class="btn btn--accent" href={whatsappLink(mensagem)} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Chamar no WhatsApp</a>
+      <a class="btn btn--accent" href={whatsappLink()} target="_blank" rel="noopener" data-track="whatsapp"><Icon name="whatsapp" /> Chamar no WhatsApp</a>
       <a class="btn btn--ghost" href={site.telefone.link} data-track="telefone"><Icon name="phone" /> {site.telefone.exibicao}</a>
     </div>
   </div>
