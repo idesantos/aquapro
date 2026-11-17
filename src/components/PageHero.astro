@@ -83,7 +83,9 @@ const tex = imagem ? await getImage({ src: imagem, width: Math.min(1600, imagem.
     padding-bottom: clamp(56px, 8vw, 100px);
     pointer-events: none;
   }
-  .phero__content > * {
+  /* :global porque o conteúdo do <slot> (os botões das modalidades) vem com o escopo da página
+     e não herdaria o pointer-events: auto — o clique atravessava o botão e caía na água. */
+  .phero__content > :global(*) {
     pointer-events: auto;
   }
   .phero__crumbs {
